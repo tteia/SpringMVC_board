@@ -45,7 +45,7 @@ public class PostController {
     }
 
     @GetMapping("/delete/{id}")
-    public String postDelete(@PathVariable Long id, Model model){
+    public String postDelete(@PathVariable Long id){
         postService.postDelete(id);
         return "redirect:/post/list";
     }
