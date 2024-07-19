@@ -3,6 +3,7 @@ package com.beyond.board.post.domain;
 import com.beyond.board.author.domain.Author;
 import com.beyond.board.post.dto.PostDetResDto;
 import com.beyond.board.post.dto.PostListResDto;
+import com.beyond.board.post.repository.PostUpdateReqDto;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -51,5 +52,10 @@ public class Post {
                 .createdTime(this.getCreatedTime())
                 .updatedTime(this.getUpdateTime())
                 .build();
+    }
+
+    public void updatePost(PostUpdateReqDto postUpdateReqDto) {
+        this.title = postUpdateReqDto.getTitle();
+        this.contents = postUpdateReqDto.getContents();
     }
 }

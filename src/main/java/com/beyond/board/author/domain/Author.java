@@ -2,6 +2,7 @@ package com.beyond.board.author.domain;
 
 import com.beyond.board.author.dto.AuthorDetailDto;
 import com.beyond.board.author.dto.AuthorListResDto;
+import com.beyond.board.author.dto.AuthorUpdateReqDto;
 import com.beyond.board.common.BaseTimeEntity;
 import com.beyond.board.post.domain.Post;
 import lombok.AllArgsConstructor;
@@ -44,6 +45,10 @@ public class Author extends BaseTimeEntity {
         return authorListResDto;
     }
 
+    public void updateAuthor(AuthorUpdateReqDto authorUpdateReqDto) {
+        this.name = authorUpdateReqDto.getName();
+        this.password = authorUpdateReqDto.getPassword();
+    }
 
 
 //    @Builder

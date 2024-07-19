@@ -4,6 +4,7 @@ import com.beyond.board.author.domain.Author;
 import com.beyond.board.author.dto.AuthorDetailDto;
 import com.beyond.board.author.dto.AuthorListResDto;
 import com.beyond.board.author.dto.AuthorSaveReqDto;
+import com.beyond.board.author.dto.AuthorUpdateReqDto;
 import com.beyond.board.author.repository.AuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,20 @@ public class AuthorService {
     public Author authorFindByEmail(String email){
         Author author = authorRepository.findByEmail(email).orElseThrow(()-> new EntityNotFoundException("해당 Email 을 가진 사용자가 없습니다."));
         return author;
+    }
+
+    @Transactional
+    public void authorDelete(Long id) {
+        Author author = authorRepository.findById(id).orElseThrow(()->new EntityNotFoundException("회원을 찾을 수 없습니다."));
+        authorRepository.delete(author);
+    }
+
+    @Transactional
+    public Author authorUpdate(Long id, AuthorUpdateReqDto authorUpdateReqDto){
+        Author author = authorRepository.findById(id).orElseThrow(()->new EntityNotFoundException("회원을 찾을 수 없습니다."));
+        author.updateAuthor(authorUpdateReqDto);
+        //        authorUpdateReqDto.toEntity(author);
+        Author updatedResult = authorRepository.save(author);
+        return updatedResult;
     }
 }

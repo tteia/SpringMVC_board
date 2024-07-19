@@ -8,10 +8,15 @@
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
   />
+  <style>
+    #update-form{
+      display: none;
+    }
+  </style>
 </head>
 <body>
 <div th:replace="common/header :: headerFragment"></div>
-<div class="container mt-5"> <!-- 헤더 밑에 공간 추가 -->
+<div class="container mt-5">
   <div class="page-header mb-4"><h3>👩🏻‍💻 회원 상세조회</h3></div>
   <table class="table table-bordered">
     <tr class="mb-3">
@@ -19,7 +24,7 @@
       <td th:text="${author.id}"></td>
     </tr>
     <tr class="mb-3">
-      <td>👩🏻‍💻 작성자명</td>
+      <td>📛 작성자명</td>
       <td th:text="${author.name}"></td>
     </tr>
     <tr class="mb-3">
@@ -43,6 +48,31 @@
       <td th:text="${author.postCounts}"></td>
     </tr>
   </table>
+  <div class="float-end">
+    <button onclick="showUpdateForm()" style="background-color:aliceblue; color:orange; border: 2px solid orange;" class="btn btn-primary">✔️ 수정</button>
+    <a th:href="@{/author/delete/{id}(id = ${author.id})}" class="btn btn-primary" style="background-color:aliceblue; color:orange; border: 2px solid orange;">✔️ 삭제</a>
+  </div>
+  <br>
+  <div id="update-form" class="mt-4">
+    <form th:action="@{/author/update/{id}(id = ${author.id})}" method="post">
+      <div class="form-group">
+        <label for="name">📛 이름</label>
+        <input type="text" class="form-control" name="name" id="name" th:value="${author.name}">
+      </div>
+      <div class="form-group">
+        <label for="password">🔑 비밀번호</label>
+        <input type="password" class="form-control" name="password" id="password" th:value="${author.password}">
+      </div>
+      <div class="form-group">
+        <button type="submit" style="background-color:aliceblue; color:orange; border: 2px solid orange;" class="btn btn-primary">🐬 수정 완료 !</button>
+      </div>
+    </form>
+  </div>
 </div>
+<script>
+  function showUpdateForm(){
+    document.getElementById('update-form').style.display = 'block';
+  }
+</script>
 </body>
 </html>

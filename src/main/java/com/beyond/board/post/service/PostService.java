@@ -7,8 +7,10 @@ import com.beyond.board.post.dto.PostDetResDto;
 import com.beyond.board.post.dto.PostListResDto;
 import com.beyond.board.post.dto.PostSaveReqDto;
 import com.beyond.board.post.repository.PostRepository;
+import com.beyond.board.post.repository.PostUpdateReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.ArrayList;
@@ -52,10 +54,22 @@ public class PostService {
     }
 
     public PostDetResDto postDetail(Long id){
-        Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("회원을 찾을 수 없습니다."));
+        Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("게시글을 찾을 수 없습니다."));
         PostDetResDto postDetResDto = post.detFromEntity();
         return postDetResDto;
     }
 
 
+    public void postDelete(Long id) {
+        Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("게시글을 찾을 수 없습니다."));
+        postRepository.delete(post);
+    }
+
+    @Transactional
+    public Post postUpdate(Long id, PostUpdateReqDto postUpdateReqDto) {
+        Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("게시글을 찾을 수 없습니다."));
+        post.updatePost(postUpdateReqDto);
+        Post updateReult = postRepository.save(post);
+        return updateReult;
+    }
 }
