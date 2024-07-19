@@ -15,7 +15,7 @@
       <br />
       <div class="page-header"><h2>📝 게시글 목록</h2></div>
       <div class="float-end">
-        <a href="/post/create" class="btn btn-primary">✏️ 글쓰기</a>
+        <a href="/post/create" class="btn btn-primary" style="background-color:aliceblue; color:orange; border: 1px solid orange;">✏️ 글쓰기</a>
       </div>
       <table class="table">
         <thead>
@@ -30,7 +30,7 @@
           <td th:text="${post.id}"></td>
           <td th:text="${post.title}"></td>
           <td th:text="${post.author_email}"></td>
-          <td><a th:href="@{/post/detail/{id}(id = ${post.id})}">🔎 상세 조회</a></td>
+          <td><a th:href="@{/post/detail/{id}(id = ${post.id})}" style="background-color:aliceblue; color:orange;">🔎 상세 조회</a></td>
         </tr>
         </tbody>
       </table>

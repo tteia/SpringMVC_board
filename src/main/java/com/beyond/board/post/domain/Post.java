@@ -26,6 +26,7 @@ public class Post {
     @Column(length = 3000)
     private String contents;
 
+    // 연관 관계의 주인은 FK 가 있는 Post.
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;
