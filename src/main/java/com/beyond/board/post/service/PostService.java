@@ -45,7 +45,8 @@ public class PostService {
     }
 
     public List<PostListResDto> postList(){
-        List<Post> posts = postRepository.findAll();
+//        List<Post> posts = postRepository.findAll();
+        List<Post> posts = postRepository.findAllFetch(); // Fetch join 적용 후 코드 수정
         List<PostListResDto> postListResDtos = new ArrayList<>();
         for (Post post : posts) { // author 는 post 에 담겨있어요.
             postListResDtos.add(post.listFromEntity());
