@@ -27,7 +27,7 @@ public class Post {
     private String contents;
 
     // 연관 관계의 주인은 FK 가 있는 Post.
-    @ManyToOne(fetch = FetchType.LAZY) //참조 안 하면 안 나가게..?
+    @ManyToOne(fetch = FetchType.LAZY) //참조 안 하면 안 나가게.
     @JoinColumn(name = "author_id")
     private Author author;
 

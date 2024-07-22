@@ -9,6 +9,8 @@ import com.beyond.board.post.dto.PostSaveReqDto;
 import com.beyond.board.post.repository.PostRepository;
 import com.beyond.board.post.repository.PostUpdateReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,13 +46,24 @@ public class PostService {
         // jpa 가 author 객체에서 author_id 를 찾아 db 에는 author_id 가 들어감.
     }
 
-    public List<PostListResDto> postList(){
+    public Page<PostListResDto> postList(Pageable pageable){
 //        List<Post> posts = postRepository.findAll();
-        List<Post> posts = postRepository.findAllFetch(); // Fetch join 적용 후 코드 수정
-        List<PostListResDto> postListResDtos = new ArrayList<>();
-        for (Post post : posts) { // author 는 post 에 담겨있어요.
-            postListResDtos.add(post.listFromEntity());
-        }
+//        List<Post> posts = postRepository.findAllFetch(); // Fetch join 적용 후 코드 수정
+//        List<PostListResDto> postListResDtos = new ArrayList<>();
+//        for (Post post : posts) { // author 는 post 에 담겨있어요.
+//            postListResDtos.add(post.listFromEntity());
+//        }
+
+        Page<Post> posts = postRepository.findAll(pageable);
+        Page<PostListResDto> postListResDtos = posts.map(a->a.listFromEntity());
+        return postListResDtos;
+
+    }
+
+    //Page 자체가 List 형식이기 때문에 원래는 Page<List<PostListResDto>> 인데 List 를 다 떼줄 수 있음.
+    public Page<PostListResDto> postListPage(Pageable pageable){
+        Page<Post> posts = postRepository.findAll(pageable);
+        Page<PostListResDto> postListResDtos = posts.map(a->a.listFromEntity()); // map : 요소 하나 하나를 순회하며 새 요소를 만드는 것.
         return postListResDtos;
     }
 
