@@ -61,4 +61,8 @@ public class Post {
         this.title = postUpdateReqDto.getTitle();
         this.contents = postUpdateReqDto.getContents();
     }
+
+    public void updateAppointmet(String yn){
+        this.appointment = yn;
+    }
 }
