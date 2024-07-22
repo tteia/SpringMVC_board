@@ -30,4 +30,6 @@ public interface PostRepository extends JpaRepository<Post, Long>{
     // -> N+1 문제가 똑 같 이 발 생.
     @Query("select p from Post p left join p.author")
     List<Post> findAllNOFetch();
+
+    Page<Post> findByAppointment(Pageable pageable, String appointment);
 }

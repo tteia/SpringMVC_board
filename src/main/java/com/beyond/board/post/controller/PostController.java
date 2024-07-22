@@ -50,7 +50,6 @@ public class PostController {
     // Pageable 요청 방법 : localhost:8080/post/list/page?size=10&page=0
     public Page<List<PostListResDto>> postListTest(@PageableDefault(size = 10, sort = "createdTime", direction = Sort.Direction.DESC) Pageable pageable){ // 디폴트로 지정한 건 사용자가 주소창에서 수정하면 덮어씌워짐 !
         postService.postListPage(pageable);
-
         return null;
     }
 

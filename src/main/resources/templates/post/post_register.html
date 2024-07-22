@@ -32,7 +32,19 @@
               placeholder="제목을 작성해주세요."
       />
     </div>
-
+    <br />
+    <div class="form-group">
+      <label for="email">📧 이메일 : </label>
+      <input
+              class="form-control"
+              type="email"
+              name="email"
+              id="email"
+              maxlength="20"
+              placeholder="이메일을 작성해주세요."
+      >
+    </div>
+    <br />
     <div class="form-group">
       <label for="contents">🔎 내용 : </label>
       <textarea
@@ -44,20 +56,16 @@
               placeholder="내용을 작성해주세요."
       ></textarea>
     </div>
-    <br />
 
-    <div class="form-group">
-      <label for="email">📧 이메일 : </label>
-      <textarea
-              class="form-control"
-              name="email"
-              id="email"
-              rows="10"
-              maxlength="80"
-              placeholder="이메일을 작성해주세요."
-      ></textarea>
-    </div>
     <br />
+    <div>
+      <label> 🕗 예약 여부 </label>
+      <input type="radio" name="appointment" value="Y">YES
+      <input type="radio" name="appointment" value="N" checked>NO
+      <label> 🕗 예약 시간 </label>
+      <input type="datetime-local" name="appointmentTime">
+
+    </div>
     <button type="submit" class="btn btn-secondary" style="background-color:aliceblue; color:orange; border: 2px solid orange;">🐬 제출</button>
   </form>
 </div>

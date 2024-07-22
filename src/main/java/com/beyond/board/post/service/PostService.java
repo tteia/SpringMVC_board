@@ -15,6 +15,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +42,19 @@ public class PostService {
 
     public Post postCreate(PostSaveReqDto postSaveReqDto){
         Author author = authorService.authorFindByEmail(postSaveReqDto.getEmail());
-        Post post = postRepository.save(postSaveReqDto.toEntity(author));
+        String appointment = null;
+        LocalDateTime appointmentTime = null;
+        // 만약 Y 이면 !isEmpty() 여야 함. && 비어있어도 null 로 넘어오지는 않으므로 null 체크 안 함.
+        if(postSaveReqDto.getAppointment().equals("Y") && !postSaveReqDto.getAppointmentTime().isEmpty()){
+            DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+            appointmentTime = LocalDateTime.parse(postSaveReqDto.getAppointmentTime(), dateTimeFormatter);
+            LocalDateTime now = LocalDateTime.now();
+            if(appointmentTime.isBefore(now)){
+                throw new IllegalArgumentException("예약 시간은 현재 시간보다 이전일 수 없습니다.");
+            }
+
+        }
+        Post post = postRepository.save(postSaveReqDto.toEntity(author, appointmentTime));
         return post;
         // authorService 에서 author 객체를 찾아 post의 toEntity 에 넘기고,
         // jpa 가 author 객체에서 author_id 를 찾아 db 에는 author_id 가 들어감.
@@ -54,7 +68,8 @@ public class PostService {
 //            postListResDtos.add(post.listFromEntity());
 //        }
 
-        Page<Post> posts = postRepository.findAll(pageable);
+//        Page<Post> posts = postRepository.findAll(pageable);
+        Page<Post> posts = postRepository.findByAppointment(pageable, "N");
         Page<PostListResDto> postListResDtos = posts.map(a->a.listFromEntity());
         return postListResDtos;
 

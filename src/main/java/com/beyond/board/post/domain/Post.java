@@ -35,6 +35,8 @@ public class Post {
     private LocalDateTime createdTime;
     @UpdateTimestamp
     private LocalDateTime updateTime;
+    private String appointment; // 우리는 중간에 추가했기 때문에 기존 작성글들이 null 이라 nullable 설정해주지 않는다.
+    private LocalDateTime appointmentTime;
 
     public PostListResDto listFromEntity() {
         return PostListResDto.builder()
