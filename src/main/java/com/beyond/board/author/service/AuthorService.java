@@ -32,6 +32,9 @@ public class AuthorService {
         if(authorRepository.findByEmail(authorSaveReqDto.getEmail()).isPresent()){
             throw new IllegalArgumentException("이미 존재하는 Email 입니다.");
         }
+        if(authorSaveReqDto.getPassword().length() < 8){
+            throw new IllegalArgumentException("비밀번호가 너무 짧습니다. (8자 이상 설정)");
+        }
         Author author = authorSaveReqDto.toEntity();
         //Cascade persist test. (remove 테스트는 회원 삭제로 대체 !)
         // .getPosts() 때문에 nullPointer 에러 발생함. (지금 가입하니까 post 작성 기록이 없잔아)
