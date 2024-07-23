@@ -57,8 +57,8 @@ public class AuthorController {
 //        catch (IllegalArgumentException e){
 //            log.error(id + e.getMessage());
 //        }
-        log.info("Get 요청입니다. parameter 는 " + id + ".");
-        log.info("method 명 : authorDetail.");
+//        log.info("Get 요청입니다. parameter 는 " + id + ".");
+//        log.info("method 명 : authorDetail.");
 
         AuthorDetailDto authorDetailDto = authorService.authorDetail(id);
         model.addAttribute("author", authorDetailDto);

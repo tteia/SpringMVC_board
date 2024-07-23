@@ -28,6 +28,3 @@ logging:
 #    root: debug
   file:
     name: logs/app.log
-
-mybatis:
-  mapper-locations: classpath:/mapper/**/*.xml

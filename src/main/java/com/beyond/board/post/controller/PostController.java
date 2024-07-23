@@ -57,8 +57,8 @@ public class PostController {
 
     @GetMapping("/detail/{id}")
     public String postDetail(@PathVariable Long id, Model model){
-        log.info("Get 요청입니다. parameter 는 " + id + ".");
-        log.info("method 명 : postDetail.");
+//        log.info("Get 요청입니다. parameter 는 " + id + ".");
+//        log.info("method 명 : postDetail.");
         model.addAttribute("post", postService.postDetail(id));
         return "/post/post_detail";
     }
