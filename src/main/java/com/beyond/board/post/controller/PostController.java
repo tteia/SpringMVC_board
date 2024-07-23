@@ -5,6 +5,7 @@ import com.beyond.board.post.dto.PostListResDto;
 import com.beyond.board.post.dto.PostSaveReqDto;
 import com.beyond.board.post.repository.PostUpdateReqDto;
 import com.beyond.board.post.service.PostService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RequestMapping("/post")
 @Controller
 public class PostController {
@@ -55,6 +57,8 @@ public class PostController {
 
     @GetMapping("/detail/{id}")
     public String postDetail(@PathVariable Long id, Model model){
+        log.info("Get 요청입니다. parameter 는 " + id + ".");
+        log.info("method 명 : postDetail.");
         model.addAttribute("post", postService.postDetail(id));
         return "/post/post_detail";
     }

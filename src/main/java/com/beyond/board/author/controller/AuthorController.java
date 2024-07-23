@@ -5,6 +5,7 @@ import com.beyond.board.author.dto.AuthorListResDto;
 import com.beyond.board.author.dto.AuthorSaveReqDto;
 import com.beyond.board.author.dto.AuthorUpdateReqDto;
 import com.beyond.board.author.service.AuthorService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RequestMapping("/author")
 @Controller
 public class AuthorController {
@@ -55,6 +57,9 @@ public class AuthorController {
 //        catch (IllegalArgumentException e){
 //            log.error(id + e.getMessage());
 //        }
+        log.info("Get 요청입니다. parameter 는 " + id + ".");
+        log.info("method 명 : authorDetail.");
+
         AuthorDetailDto authorDetailDto = authorService.authorDetail(id);
         model.addAttribute("author", authorDetailDto);
         return "/author/author_detail";
