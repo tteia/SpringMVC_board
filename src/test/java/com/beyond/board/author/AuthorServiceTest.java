@@ -2,6 +2,7 @@ package com.beyond.board.author;
 
 import com.beyond.board.author.domain.Author;
 import com.beyond.board.author.domain.Role;
+import com.beyond.board.author.dto.AuthorDetailDto;
 import com.beyond.board.author.dto.AuthorSaveReqDto;
 import com.beyond.board.author.service.AuthorService;
 import org.junit.jupiter.api.Assertions;
@@ -23,8 +24,11 @@ public class AuthorServiceTest {
     void saveAndFind(){
         AuthorSaveReqDto authorDto = new AuthorSaveReqDto(
                 "하미니", "test@daum.net",
-                "1234", Role.USER);
+                "12341234", Role.USER);
         Author author = authorService.authorCreate(authorDto);
+        // findByEmail 추가
+        Author findEmailAuthor = authorService.authorFindByEmail(authorDto.getEmail());
+        // 위 한 줄만 추가해줘도 함께 검증이 가능하다.
         Assertions.assertEquals(authorDto.getEmail(), author.getEmail());
     }
 
