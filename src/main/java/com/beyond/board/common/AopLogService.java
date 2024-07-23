@@ -25,33 +25,33 @@ public class AopLogService {
     }
 
     // 방법 1. around 를 통해 controller 와 걸쳐져 있는 사용 패턴.
-    @Around("controllerPointCut()")
-    // joinPoint 는 사용자가 실행하려고 하는 코드를 의미하고, 위에서 정의한 Pointcut 을 의미.
-    public Object controllerLogger(ProceedingJoinPoint joinPoint){
-        log.info("aop START");
-        log.info("Method 명 : " + joinPoint.getSignature().getName());
-
-        // 직접 HttpServletRequest 객체를 꺼내는 법
-        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-        HttpServletRequest request = attributes.getRequest();
-
-        log.info("HTTP Method : " + request.getMethod());
-        Map<String, String[]> parameterMap = request.getParameterMap();
-//        log.info("USER INPUTS : " + parameterMap); => 메모리 저장 주소가 나온다! ObjectMapper 로 형변환 해주기.
-        ObjectMapper objectMapper = new ObjectMapper();
-        ObjectNode objectNode = objectMapper.valueToTree(parameterMap);
-        log.info("user inputs : " + objectNode);
-
-        Object result = null;
-        try {
-            // 사용자가 실행하고자 하는 코드 실행부.
-            result = joinPoint.proceed();
-        } catch (Throwable e) {
-            throw new RuntimeException(e);
-        }
-        log.info("aop END");
-        return result;
-    }
+//    @Around("controllerPointCut()")
+//    // joinPoint 는 사용자가 실행하려고 하는 코드를 의미하고, 위에서 정의한 Pointcut 을 의미.
+//    public Object controllerLogger(ProceedingJoinPoint joinPoint){
+//        log.info("aop START");
+//        log.info("Method 명 : " + joinPoint.getSignature().getName());
+//
+//        // 직접 HttpServletRequest 객체를 꺼내는 법
+//        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+//        HttpServletRequest request = attributes.getRequest();
+//
+//        log.info("HTTP Method : " + request.getMethod());
+//        Map<String, String[]> parameterMap = request.getParameterMap();
+////        log.info("USER INPUTS : " + parameterMap); => 메모리 저장 주소가 나온다! ObjectMapper 로 형변환 해주기.
+//        ObjectMapper objectMapper = new ObjectMapper();
+//        ObjectNode objectNode = objectMapper.valueToTree(parameterMap);
+//        log.info("user inputs : " + objectNode);
+//
+//        Object result = null;
+//        try {
+//            // 사용자가 실행하고자 하는 코드 실행부.
+//            result = joinPoint.proceed();
+//        } catch (Throwable e) {
+//            throw new RuntimeException(e);
+//        }
+//        log.info("aop END");
+//        return result;
+//    }
 
     // 방법 2. Before, After 어노테이션 사용
 //    @Before("controllerPointCut()")

@@ -1080,3 +1080,89 @@ java.lang.IllegalArgumentException: 비밀번호가 너무 짧습니다. (8자 �
 2024-07-23 15:46:28.105  INFO 78665 --- [http-nio-8080-exec-9] com.beyond.board.common.AopLogService    : HTTP Method : GET
 2024-07-23 15:46:28.107  INFO 78665 --- [http-nio-8080-exec-9] com.beyond.board.common.AopLogService    : user inputs : {}
 2024-07-23 15:46:28.148  INFO 78665 --- [http-nio-8080-exec-9] com.beyond.board.common.AopLogService    : aop END
+2024-07-23 16:05:34.391  INFO 78665 --- [http-nio-8080-exec-3] com.beyond.board.common.AopLogService    : aop START
+2024-07-23 16:05:34.393  INFO 78665 --- [http-nio-8080-exec-3] com.beyond.board.common.AopLogService    : Method 명 : error
+2024-07-23 16:05:34.394  INFO 78665 --- [http-nio-8080-exec-3] com.beyond.board.common.AopLogService    : HTTP Method : GET
+2024-07-23 16:05:34.401  INFO 78665 --- [http-nio-8080-exec-3] com.beyond.board.common.AopLogService    : user inputs : {}
+2024-07-23 16:05:34.416  INFO 78665 --- [http-nio-8080-exec-3] com.beyond.board.common.AopLogService    : aop END
+2024-07-23 17:04:04.375  INFO 78665 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-23 17:04:04.389  INFO 78665 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-23 17:04:04.408  INFO 78665 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-23 17:04:09.991  INFO 84107 --- [main] com.beyond.board.BoardApplication        : Starting BoardApplication using Java 11.0.16.1 on tteia-2.local with PID 84107 (/Users/tteia/board/out/production/classes started by tteia in /Users/tteia/board)
+2024-07-23 17:04:09.995  INFO 84107 --- [main] com.beyond.board.BoardApplication        : The following 1 profile is active: "dev"
+2024-07-23 17:04:11.850  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-07-23 17:04:11.852  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-07-23 17:04:11.921  INFO 84107 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.author.repository.AuthorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-07-23 17:04:11.923  INFO 84107 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.post.repository.PostRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-07-23 17:04:11.924  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 67 ms. Found 0 JDBC repository interfaces.
+2024-07-23 17:04:11.955  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-07-23 17:04:11.957  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-23 17:04:12.015  INFO 84107 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2024-07-23 17:04:12.223  WARN 84107 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.beyond.board]' package. Please check your configuration.
+2024-07-23 17:04:13.079  INFO 84107 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-07-23 17:04:13.093  INFO 84107 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-23 17:04:13.093  INFO 84107 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2024-07-23 17:04:13.263  INFO 84107 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-23 17:04:13.266  INFO 84107 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2954 ms
+2024-07-23 17:04:13.530  INFO 84107 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-23 17:04:13.629  INFO 84107 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-23 17:04:13.831  INFO 84107 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-23 17:04:13.870  INFO 84107 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-07-23 17:04:14.018  INFO 84107 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-07-23 17:04:14.169  INFO 84107 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2024-07-23 17:04:14.848  INFO 84107 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-07-23 17:04:14.855  INFO 84107 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-23 17:04:15.880  WARN 84107 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-23 17:04:16.371  WARN 84107 --- [main] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs. To silence this warning, set 'spring.batch.jdbc.isolation-level-for-create' to 'default'.
+2024-07-23 17:04:16.376  INFO 84107 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-23 17:04:16.397  INFO 84107 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2024-07-23 17:04:16.634  INFO 84107 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-07-23 17:04:16.652  INFO 84107 --- [main] com.beyond.board.BoardApplication        : Started BoardApplication in 7.912 seconds (JVM running for 8.622)
+2024-07-23 17:04:16.659  INFO 84107 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2024-07-23 17:04:17.189  INFO 84107 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-23 17:04:17.192  INFO 84107 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-23 17:04:17.197  INFO 84107 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2024-07-23 17:15:16.601  INFO 84107 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-07-23 17:15:16.608  INFO 84107 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-07-23 17:15:16.632  INFO 84107 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-07-23 17:15:25.926  INFO 85072 --- [main] com.beyond.board.BoardApplication        : Starting BoardApplication using Java 11.0.16.1 on tteia-2.local with PID 85072 (/Users/tteia/board/out/production/classes started by tteia in /Users/tteia/board)
+2024-07-23 17:15:25.929  INFO 85072 --- [main] com.beyond.board.BoardApplication        : The following 1 profile is active: "dev"
+2024-07-23 17:15:27.486  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-07-23 17:15:27.487  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2024-07-23 17:15:27.552  INFO 85072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.author.repository.AuthorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-07-23 17:15:27.555  INFO 85072 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.post.repository.PostRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
+2024-07-23 17:15:27.556  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 63 ms. Found 0 JDBC repository interfaces.
+2024-07-23 17:15:27.585  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2024-07-23 17:15:27.587  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-07-23 17:15:27.634  INFO 85072 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 39 ms. Found 2 JPA repository interfaces.
+2024-07-23 17:15:27.860  WARN 85072 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.beyond.board]' package. Please check your configuration.
+2024-07-23 17:15:28.735  INFO 85072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2024-07-23 17:15:28.747  INFO 85072 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-07-23 17:15:28.747  INFO 85072 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
+2024-07-23 17:15:28.896  INFO 85072 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-07-23 17:15:28.898  INFO 85072 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2765 ms
+2024-07-23 17:15:29.085  INFO 85072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-07-23 17:15:29.170  INFO 85072 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-07-23 17:15:29.371  INFO 85072 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-07-23 17:15:29.410  INFO 85072 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
+2024-07-23 17:15:29.551  INFO 85072 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2024-07-23 17:15:29.707  INFO 85072 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
+2024-07-23 17:15:30.396  INFO 85072 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2024-07-23 17:15:30.403  INFO 85072 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-07-23 17:15:31.272  WARN 85072 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-07-23 17:15:31.834  WARN 85072 --- [main] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs. To silence this warning, set 'spring.batch.jdbc.isolation-level-for-create' to 'default'.
+2024-07-23 17:15:31.840  INFO 85072 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
+2024-07-23 17:15:31.857  INFO 85072 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2024-07-23 17:15:32.072  WARN 85072 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: dcd4416c-8639-46fb-a5a4-173e5a76b755
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2024-07-23 17:15:32.213  INFO 85072 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@14b9817b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3052395d, org.springframework.security.web.context.SecurityContextPersistenceFilter@154208f2, org.springframework.security.web.header.HeaderWriterFilter@be9bf2e, org.springframework.security.web.csrf.CsrfFilter@3b9c05f, org.springframework.security.web.authentication.logout.LogoutFilter@4411a0fe, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@76876421, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@328e687e, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@a2ca681, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ae5d544, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f73a7cf, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4198921f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@784c74e, org.springframework.security.web.session.SessionManagementFilter@949f0d, org.springframework.security.web.access.ExceptionTranslationFilter@2c955487, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@13b5598b]
+2024-07-23 17:15:32.312  INFO 85072 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2024-07-23 17:15:32.333  INFO 85072 --- [main] com.beyond.board.BoardApplication        : Started BoardApplication in 7.384 seconds (JVM running for 8.089)
+2024-07-23 17:15:32.338  INFO 85072 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
+2024-07-23 17:15:40.836  INFO 85072 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-07-23 17:15:40.838  INFO 85072 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-07-23 17:15:40.845  INFO 85072 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
