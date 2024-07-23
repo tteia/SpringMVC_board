@@ -4,6 +4,8 @@ import com.beyond.board.author.domain.Author;
 import com.beyond.board.author.domain.Role;
 import com.beyond.board.author.dto.AuthorDetailDto;
 import com.beyond.board.author.dto.AuthorSaveReqDto;
+import com.beyond.board.author.dto.AuthorUpdateReqDto;
+import com.beyond.board.author.repository.AuthorRepository;
 import com.beyond.board.author.service.AuthorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
+
+import java.util.ArrayList;
 
 @SpringBootTest
 @Transactional
@@ -33,6 +37,28 @@ public class AuthorServiceTest {
     }
 
     // update 검증
+    // 객체 create
+    @Test
+    void updateTest(){
+        AuthorSaveReqDto authorDto = new AuthorSaveReqDto(
+                "하미니", "hamin@test.com",
+                "12341234", Role.USER);
+        Author author = authorService.authorCreate(authorDto);
+        // 수정 작업 => name, password 변경.
+        AuthorUpdateReqDto authorUpdateReqDto = AuthorUpdateReqDto.builder()
+                .name("아영이")
+                .password("43214321")
+                .build();
+
+        authorService.authorUpdate(author.getId(), authorUpdateReqDto);
+
+        // 수정 후 재조회 => 바꾼 name, password 각각 검증.
+        Author savedAuthor = authorService.authorFindByEmail("hamin@test.com");
+
+        Assertions.assertEquals(authorUpdateReqDto.getName(), savedAuthor.getName());
+        Assertions.assertEquals(authorUpdateReqDto.getPassword(), savedAuthor.getPassword());
+    }
+
 
     // findAll 검증
 }
