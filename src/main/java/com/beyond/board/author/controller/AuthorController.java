@@ -48,6 +48,13 @@ public class AuthorController {
 
     @GetMapping("/detail/{id}")
     public String authorDetailList(@PathVariable Long id, Model model){
+//        try{
+//            AuthorDetailDto authorDetailDto = authorService.authorDetail(id);
+//            model.addAttribute("author", authorDetailDto);
+//        }
+//        catch (IllegalArgumentException e){
+//            log.error(id + e.getMessage());
+//        }
         AuthorDetailDto authorDetailDto = authorService.authorDetail(id);
         model.addAttribute("author", authorDetailDto);
         return "/author/author_detail";

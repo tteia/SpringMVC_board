@@ -14,6 +14,14 @@ spring:
       ddl-auto: update
     show_sql: true
 
+logging:
+##  로그 레벨 : trace < debug < info < error 순서의 로그 레벨을 가짐.
+##  즉, info 로 설정 시 trace, debug 로그는 출력되지 않음.
+  level:
+    root: info
+#    root: debug
+  file:
+    name: logs/app.log
 
 mybatis:
   mapper-locations: classpath:/mapper/**/*.xml
