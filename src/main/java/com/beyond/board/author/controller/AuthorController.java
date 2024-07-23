@@ -1,6 +1,5 @@
 package com.beyond.board.author.controller;
 
-import com.beyond.board.author.domain.Author;
 import com.beyond.board.author.dto.AuthorDetailDto;
 import com.beyond.board.author.dto.AuthorListResDto;
 import com.beyond.board.author.dto.AuthorSaveReqDto;
@@ -49,7 +48,7 @@ public class AuthorController {
 
     @GetMapping("/detail/{id}")
     public String authorDetailList(@PathVariable Long id, Model model){
-        AuthorDetailDto authorDetailDto = authorService.authorDetailDto(id);
+        AuthorDetailDto authorDetailDto = authorService.authorDetail(id);
         model.addAttribute("author", authorDetailDto);
         return "/author/author_detail";
     }

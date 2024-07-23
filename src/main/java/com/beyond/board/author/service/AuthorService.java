@@ -56,13 +56,13 @@ public class AuthorService {
         return authorListResDtos;
     }
 
-    public AuthorDetailDto authorDetailDto(Long id){
+    public AuthorDetailDto authorDetail(Long id){
         Author author = authorRepository.findById(id).orElseThrow(()->new EntityNotFoundException("회원을 찾을 수 없습니다."));
         AuthorDetailDto authorDetailDto = new AuthorDetailDto();
         return authorDetailDto.fromEntity(author);
 
         // 아래 완성해보기
-//        AuthorDetailDto authorDetailDto1 = new authorDetailDto.fromEntity(author);
+//        AuthorDetailDto authorDetailDto1 = new authorDetail.fromEntity(author);
 //        return authorDetailDto1;
 
     }
