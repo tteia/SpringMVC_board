@@ -8,6 +8,7 @@ import com.beyond.board.author.dto.AuthorUpdateReqDto;
 import com.beyond.board.author.repository.AuthorRepository;
 import com.beyond.board.post.domain.Post;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,10 +21,12 @@ import java.util.List;
 @Transactional(readOnly = true) // 조회 작업 시 ReadOnly > 성능 향상. 다만 저장 작업 시에는 메서드 위에 별도로 Transactional 작성.
 public class AuthorService {
     private final AuthorRepository authorRepository;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public AuthorService(AuthorRepository authorRepository){
+    public AuthorService(AuthorRepository authorRepository, PasswordEncoder passwordEncoder){
         this.authorRepository = authorRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     // 정보가 있기 때문에 Author 를 사용자에게 바로 쏘진 않을 것.
@@ -35,7 +38,7 @@ public class AuthorService {
         if(authorSaveReqDto.getPassword().length() < 8){
             throw new IllegalArgumentException("비밀번호가 너무 짧습니다. (8자 이상 설정)");
         }
-        Author author = authorSaveReqDto.toEntity();
+        Author author = authorSaveReqDto.toEntity(passwordEncoder.encode(authorSaveReqDto.getPassword()));
         //Cascade persist test. (remove 테스트는 회원 삭제로 대체 !)
         // .getPosts() 때문에 nullPointer 에러 발생함. (지금 가입하니까 post 작성 기록이 없잔아)
         author.getPosts().add(Post.builder()
