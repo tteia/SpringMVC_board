@@ -43,8 +43,8 @@ public class PostService {
 
     public Post postCreate(PostSaveReqDto postSaveReqDto){
 //        Author author = authorService.authorFindByEmail(postSaveReqDto.getEmail());
-        String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        Author author = authorService.authorFindByEmail(username);
+        String loginEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+        Author author = authorService.authorFindByEmail(loginEmail);
         String appointment = null;
         LocalDateTime appointmentTime = null;
         // 만약 Y 이면 !isEmpty() 여야 함. && 비어있어도 null 로 넘어오지는 않으므로 null 체크 안 함.
@@ -93,13 +93,21 @@ public class PostService {
 
 
     public void postDelete(Long id) {
+        String loginEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("게시글을 찾을 수 없습니다."));
+        if(!post.getAuthor().getEmail().equals(loginEmail)){
+            throw new IllegalArgumentException("게시글은 작성자 본인만 삭제할 수 있습니다.");
+        }
         postRepository.delete(post);
     }
 
     @Transactional
     public Post postUpdate(Long id, PostUpdateReqDto postUpdateReqDto) {
+        String loginEmail = SecurityContextHolder.getContext().getAuthentication().getName();
         Post post = postRepository.findById(id).orElseThrow(()->new EntityNotFoundException("게시글을 찾을 수 없습니다."));
+        if(!post.getAuthor().getEmail().equals(loginEmail)){
+            throw new IllegalArgumentException("게시글은 작성자 본인만 수정할 수 있습니다.");
+        }
         post.updatePost(postUpdateReqDto);
         Post updateReult = postRepository.save(post);
         return updateReult;
