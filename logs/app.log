@@ -1,41 +1,14 @@
-2024-07-23 17:36:15.301  INFO 86647 --- [main] com.beyond.board.BoardApplication        : Starting BoardApplication using Java 11.0.16.1 on tteia-2.local with PID 86647 (/Users/tteia/board/out/production/classes started by tteia in /Users/tteia/board)
-2024-07-23 17:36:15.304  INFO 86647 --- [main] com.beyond.board.BoardApplication        : The following 1 profile is active: "dev"
-2024-07-23 17:36:16.862  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-07-23 17:36:16.864  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2024-07-23 17:36:16.928  INFO 86647 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.author.repository.AuthorRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2024-07-23 17:36:16.931  INFO 86647 --- [main] .RepositoryConfigurationExtensionSupport : Spring Data JDBC - Could not safely identify store assignment for repository candidate interface com.beyond.board.post.repository.PostRepository; If you want this repository to be a JDBC repository, consider annotating your entities with one of these annotations: org.springframework.data.relational.core.mapping.Table.
-2024-07-23 17:36:16.932  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 0 JDBC repository interfaces.
-2024-07-23 17:36:16.952  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
-2024-07-23 17:36:16.954  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-07-23 17:36:17.002  INFO 86647 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43 ms. Found 2 JPA repository interfaces.
-2024-07-23 17:36:17.213  WARN 86647 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.beyond.board]' package. Please check your configuration.
-2024-07-23 17:36:18.150  INFO 86647 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2024-07-23 17:36:18.161  INFO 86647 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-07-23 17:36:18.161  INFO 86647 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.74]
-2024-07-23 17:36:18.287  INFO 86647 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-07-23 17:36:18.289  INFO 86647 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2767 ms
-2024-07-23 17:36:18.493  INFO 86647 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-07-23 17:36:18.570  INFO 86647 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-07-23 17:36:18.751  INFO 86647 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-07-23 17:36:18.797  INFO 86647 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.15.Final
-2024-07-23 17:36:18.966  INFO 86647 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
-2024-07-23 17:36:19.088  INFO 86647 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MariaDBDialect
-2024-07-23 17:36:19.769  INFO 86647 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2024-07-23 17:36:19.778  INFO 86647 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-07-23 17:36:20.821  WARN 86647 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
-
-Using generated security password: 97d6ef0a-e1b7-4c89-859e-112dc5e57c62
-
-This generated password is for development use only. Your security configuration must be updated before running your application in production.
-
-2024-07-23 17:36:20.917  INFO 86647 --- [main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1e4a4ed5, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5644f664, org.springframework.security.web.context.SecurityContextPersistenceFilter@41948c13, org.springframework.security.web.header.HeaderWriterFilter@34f8ce89, org.springframework.security.web.authentication.logout.LogoutFilter@23ee92df, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@62264d4f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@322eb1a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@445f6f73, org.springframework.security.web.session.SessionManagementFilter@7730da00, org.springframework.security.web.access.ExceptionTranslationFilter@618e7761]
-2024-07-23 17:36:21.064  WARN 86647 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-07-23 17:36:21.552  WARN 86647 --- [main] o.s.b.a.batch.JpaBatchConfigurer         : JPA does not support custom isolation levels, so locks may not be taken when launching Jobs. To silence this warning, set 'spring.batch.jdbc.isolation-level-for-create' to 'default'.
-2024-07-23 17:36:21.555  INFO 86647 --- [main] o.s.b.c.r.s.JobRepositoryFactoryBean     : No database type set, using meta data indicating: MYSQL
-2024-07-23 17:36:21.573  INFO 86647 --- [main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
-2024-07-23 17:36:21.784  INFO 86647 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2024-07-23 17:36:21.802  INFO 86647 --- [main] com.beyond.board.BoardApplication        : Started BoardApplication in 7.555 seconds (JVM running for 8.299)
-2024-07-23 17:36:21.805  INFO 86647 --- [main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: []
-2024-07-23 17:36:40.636  INFO 86647 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-07-23 17:36:40.637  INFO 86647 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-07-23 17:36:40.655  INFO 86647 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 18 ms
+2024-07-24 00:43:31.061  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47m52s992ms).
+2024-07-24 01:48:18.039  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h4m46s979ms).
+2024-07-24 03:02:24.884  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h14m6s845ms).
+2024-07-24 03:18:09.228  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=15m44s344ms).
+2024-07-24 04:41:55.586  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h23m46s358ms).
+2024-07-24 05:48:52.289  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h6m56s703ms).
+2024-07-24 06:42:45.029  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53m52s738ms).
+2024-07-24 07:14:02.123  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=31m17s95ms).
+2024-07-24 07:41:12.539  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=27m10s417ms).
+2024-07-24 08:44:51.611  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h3m39s72ms).
+2024-07-24 08:49:24.410  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m32s769ms).
+2024-07-24 08:56:13.696  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m49s285ms).
+2024-07-24 09:01:39.548  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m25s853ms).
+2024-07-24 09:02:43.286  WARN 86647 --- [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m3s737ms).
