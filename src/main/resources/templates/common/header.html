@@ -20,11 +20,11 @@
         <li class="nav-item">
           <a href="/author/register" class="nav-link" style="color:orange">🐰 회원 가입</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" th:if="${session.email == null}">
           <a href="/author/login-screen" class="nav-link" style="color:orange">🥕 로그인</a>
         </li>
-        <li class="nav-item">
-          <a href="doLogout" class="nav-link" style="color:orange">👋🏻 로그아웃</a>
+        <li class="nav-item" th:if="${session.email != null}">
+          <a href="/doLogout" class="nav-link" style="color:orange">👋🏻 로그아웃</a>
         </li>
       </ul>
     </div>

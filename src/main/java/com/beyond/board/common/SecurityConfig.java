@@ -1,5 +1,6 @@
 package com.beyond.board.common;
 
+import com.beyond.board.author.service.LoginSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -37,6 +38,7 @@ public class SecurityConfig {
                         // 하지만 doLogin 에 넘겨줄 email, password 속성명은 별도 지정 필요.
                         .usernameParameter("email")
                         .passwordParameter("password")
+                .successHandler(new LoginSuccessHandler())
                 .and()
                     // 마찬가지로 spring 에 내장 되어 있는 logout 활용.
                     .logout()
