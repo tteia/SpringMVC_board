@@ -11,6 +11,7 @@ import com.beyond.board.post.repository.PostUpdateReqDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -41,7 +42,9 @@ public class PostService {
     // => AuthorService 순환참조 이슈 발생할 수 있음 -> 우리 생성자 방식으로 방지하는 것이 아니라 에러가 발생하는 걸 찾아낼 수 있음.
 
     public Post postCreate(PostSaveReqDto postSaveReqDto){
-        Author author = authorService.authorFindByEmail(postSaveReqDto.getEmail());
+//        Author author = authorService.authorFindByEmail(postSaveReqDto.getEmail());
+        String username = SecurityContextHolder.getContext().getAuthentication().getName();
+        Author author = authorService.authorFindByEmail(username);
         String appointment = null;
         LocalDateTime appointmentTime = null;
         // 만약 Y 이면 !isEmpty() 여야 함. && 비어있어도 null 로 넘어오지는 않으므로 null 체크 안 함.

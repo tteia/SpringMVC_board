@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class PostSaveReqDto {
     private String title;
-    private String email; // 원래는 로그인 ! 우리는 이메일 입력 받는 형식으로 해보는 것. (추후 변경)
+//    private String email; // 원래는 로그인 ! 우리는 이메일 입력 받는 형식으로 해보는 것. (추후 변경) => 변경함 !
     private String contents;
     private String appointment;
     private String appointmentTime;
