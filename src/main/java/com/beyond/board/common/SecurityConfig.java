@@ -22,7 +22,7 @@ public class SecurityConfig {
                 .csrf().disable()
                 .authorizeRequests()
                     // antMatchers 는 인증 제외. (permitAll)
-                    .antMatchers("/", "/author/create","/author/login-screen")
+                    .antMatchers("/", "/author/register","/author/login-screen", "/image/**")
                     .permitAll()
                     // 그 외 요청은 모두 인증 필요.
                     .anyRequest().authenticated()

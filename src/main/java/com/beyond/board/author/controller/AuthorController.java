@@ -30,6 +30,11 @@ public class AuthorController {
         return "common/home";
     }
 
+    @GetMapping("/login-screen")
+    public String authorLoginScreen(){
+        return "author/login-screen";
+    }
+
     @GetMapping("/register")
     public String memberCreate(){
         return "author/author_register";
